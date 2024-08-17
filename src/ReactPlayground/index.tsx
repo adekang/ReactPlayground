@@ -1,4 +1,4 @@
-import { Allotment } from "allotment";
+import {Allotment} from "allotment";
 import 'allotment/dist/style.css';
 import Header from "./components/Header";
 import CodeEditor from "./components/CodeEditor";
@@ -9,10 +9,10 @@ export default function ReactPlayground() {
         <Header/>
         <Allotment defaultSizes={[100, 100]}>
             <Allotment.Pane minSize={0}>
-                <CodeEditor />
+                <CodeEditor/>
             </Allotment.Pane>
             <Allotment.Pane minSize={0}>
-                <Preview />
+                <Preview/>
             </Allotment.Pane>
         </Allotment>
     </div>
