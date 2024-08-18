@@ -3,9 +3,16 @@ import 'allotment/dist/style.css';
 import Header from "./components/Header";
 import CodeEditor from "./components/CodeEditor";
 import Preview from "./components/Preview";
+import './index.scss'
+import {useContext} from "react";
+import {PlaygroundContext} from "./PlaygroundContext.tsx";
 
 export default function ReactPlayground() {
-    return <div style={{height: '100vh'}}>
+
+
+    const {theme, setTheme} = useContext(PlaygroundContext)
+
+    return <div className={theme} style={{height: '100vh'}}>
         <Header/>
         <div style={{height: 'calc(100% - 50px)'}}>
             <Allotment defaultSizes={[100, 100]}>
