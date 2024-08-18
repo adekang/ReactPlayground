@@ -3,7 +3,6 @@ import {File, Files} from '../../PlaygroundContext'
 import {ENTRY_FILE_NAME} from '../../files'
 import {PluginObj} from '@babel/core';
 
-
 export const beforeTransformCode = (filename: string, code: string) => {
     let _code = code
     const regexReact = /import\s+React/g
@@ -100,14 +99,13 @@ export const compile = (files: Files) => {
     return babelTransform(ENTRY_FILE_NAME, main.value, files)
 }
 
-
-self.addEventListener('message', async ({ data }) => {
+self.addEventListener('message', async ({data}) => {
     try {
         self.postMessage({
             type: 'COMPILED_CODE',
             data: compile(data)
         })
     } catch (e) {
-        self.postMessage({ type: 'ERROR', error: e })
+        self.postMessage({type: 'ERROR', error: e})
     }
 })
