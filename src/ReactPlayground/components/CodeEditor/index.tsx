@@ -4,6 +4,7 @@ import {PlaygroundContext} from "../../PlaygroundContext.tsx";
 import {useContext} from "react";
 import {debounce} from "lodash-es";
 
+// @ts-ignore
 export default function CodeEditor() {
 
     const {
@@ -15,20 +16,20 @@ export default function CodeEditor() {
 
     const file = files[selectedFileName];
 
-    function onEditorChange(value: string) {
-        console.log(...arguments);
-        files[file.name].value = value!
-        setFiles({...files})
+    function onEditorChange(value: string | undefined) {
+        // console.log(...arguments);
+        if (value !== undefined) {
+            files[file.name].value = value!
+            setFiles({...files})
+        }
     }
 
     return (
         <div style={{display: 'flex', flexDirection: 'column', height: '100%'}}>
             <FileNameList/>
-            <Editor file={file} onChange={debounce(onEditorChange, 500)} options={
-                {
-                    theme: `vs-${theme}`,
-                }
-            }/>
+            <Editor file={file} onChange={debounce(onEditorChange, 500)} options={{
+                theme: `vs-${theme}`
+            }}/>
         </div>
     )
 }

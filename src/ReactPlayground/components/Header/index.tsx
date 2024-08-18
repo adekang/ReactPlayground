@@ -1,7 +1,7 @@
 import styles from './index.module.scss'
 
 import logoSvg from './icons/logo.svg';
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import {PlaygroundContext} from '../../PlaygroundContext';
 import {DownloadOutlined, MoonOutlined, ShareAltOutlined, SunOutlined} from '@ant-design/icons';
 import copy from "copy-to-clipboard";
