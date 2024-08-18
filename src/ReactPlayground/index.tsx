@@ -7,13 +7,15 @@ import Preview from "./components/Preview";
 export default function ReactPlayground() {
     return <div style={{height: '100vh'}}>
         <Header/>
-        <Allotment defaultSizes={[100, 100]}>
-            <Allotment.Pane minSize={0}>
-                <CodeEditor/>
-            </Allotment.Pane>
-            <Allotment.Pane minSize={0}>
-                <Preview/>
-            </Allotment.Pane>
-        </Allotment>
+        <div style={{height: 'calc(100% - 50px)'}}>
+            <Allotment defaultSizes={[100, 100]}>
+                <Allotment.Pane minSize={0}>
+                    <CodeEditor/>
+                </Allotment.Pane>
+                <Allotment.Pane minSize={0}>
+                    <Preview/>
+                </Allotment.Pane>
+            </Allotment>
+        </div>
     </div>
 }
