@@ -6,7 +6,7 @@ on:
   # 在针对 `main` 分支的推送上运行。如果你
   # 使用 `master` 分支作为默认分支，请将其更改为 `master`
   push:
-    branches: [master]
+    branches: [ master ]
 
   # 允许你从 Actions 选项卡手动运行此工作流程
   workflow_dispatch:
@@ -33,7 +33,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4 # 如果使用 pnpm，请取消注释
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4 # 如果使用 pnpm，请取消注释
         with:
           version: 9
       - name: Set up Node
